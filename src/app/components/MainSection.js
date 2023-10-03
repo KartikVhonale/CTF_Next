@@ -20,7 +20,7 @@ const MainSection = () => {
             </div>
             <div className="Ctf_submmition">
                 <div className="text_s">
-                    A CTF event is a competition that takes major disciplines of information security and makes them into smaller, objectively measurable exercises. Participants attempt to solve challenges by solving, exploiting, breaking, or other cybersecurity tradecraft. There are two major types of CTFs: jeopardy and attack defend.
+                    A CTF event is a competition that takes major disciplines of information security and fdsjflkjsadkljfkjasdkljflklhadih  
                 </div>
                 <div className="button_s">
                     <div className="text_field">

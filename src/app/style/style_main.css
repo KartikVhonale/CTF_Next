@@ -116,6 +116,7 @@
     font-family: Inconsolata;
     font-size: 24px;
     width: 95%;
+    height: 9 em;
     /* font-style: normal; */
     font-weight: 400;
     /* line-height: normal; */
@@ -280,11 +281,13 @@
     /* background: #04101F; */
     color: white;
     padding: 7%;
+    display: flex;
+    align-items: center;
     border-style: outset;
     font: bold15px arial,sans-serif;
     text-shadow: none;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 70;
     line-height: normal;
