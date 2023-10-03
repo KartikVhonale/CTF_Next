@@ -1,0 +1,117 @@
+
+.countdown {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    /* background_color: red; */
+    gap: 10%;
+    font-family: sans_serif;
+  }
+  
+  .time_section {
+    text-align: center;
+    font-size: 100%;
+    color: rgb(255, 255, 255);
+    /* background_color:purple; */
+  }
+  
+  .time_group {
+    display: flex;
+    gap: 3%;
+    /* background_color: blue; */
+  }
+  
+  .time_segment {
+    display: block;
+    font-size: 100%;
+    font-weight: 900;
+    width: 50%;
+  }
+  
+  .segment_display {
+    position: relative;
+    height: 100%;
+  }
+  
+  .segment_display__top,
+  .segment_display__bottom {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    height: 51%;
+    position: relative;
+  }
+  
+  .segment_display__top {
+    line-height: 1.5rem;
+    color: #070707;
+    background-color: #e0e0e0;
+  }
+  
+  .segment_display__bottom {
+    line-height: 0;
+    color: #000000;
+    background-color: #d8d8d8;
+  }
+  
+  .segment_overlay {
+    position: absolute;
+    top: 0;
+    perspective: 40%;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .segment_overlay__top,
+  .segment_overlay__bottom {
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+  }
+  
+  .segment_overlay__top {
+    top: 0;
+    line-height: 1.5;
+    color: #000000;
+    background-color: #e4e4e4;
+    transform-origin: bottom;
+  }
+  
+  .segment_overlay__bottom {
+    bottom: 0;
+    line-height: 0;
+    color: #000000;
+    background-color: #dfdfdf;
+    border-top: 0.5px solid rgba(189, 189, 189, 0.055);
+    transform-origin: top;
+  }
+  
+  .segment_overlay.flip .segment_overlay__top {
+    animation: flip_top 0.8s linear;
+  }
+  
+  .segment_overlay.flip .segment_overlay__bottom {
+    animation: flip_bottom 0.8s linear;
+  }
+  
+  @keyframes flip_top {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50%,
+    100% {
+      transform: rotateX(_90deg);
+    }
+  }
+  
+  @keyframes flip_bottom {
+    0%,
+    50% {
+      transform: rotateX(90deg);
+    }
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
