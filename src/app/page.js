@@ -1,12 +1,11 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Header from './components/Header'
-import MainSection from './components/MainSection'
-import Footer from './components/Footer'
+import Login from "./components/Login"
 
-export default function Home() {
+const Home = ()=> {
   return (
     <>
+    <Login/>
     </>
   )
 }
+
+export default Home

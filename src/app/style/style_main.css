@@ -193,7 +193,7 @@
     height: 75%;
     width: 65%;
     justify-content: space-evenly;
-    background-color: rgba(4, 16, 31, 0.52);;
+    background-color: rgba(4, 16, 31, 0.52);
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -224,11 +224,14 @@
     padding-top: 6% ;
     /* font-size: 21px; */
     /* background: pink; */ 
-  
+    background-color: rgb(4, 16, 31, 0.52);
     font-size: 24px;
     font-style: normal;
     font-weight: 70;
     line-height: normal;
+    color: #FFF;
+    width: 300px;
+    border: none;
   }
   
   .hint_lock{
@@ -240,7 +243,7 @@
   }
   
   .img_lock{
-    width: auto;
+    width: 80%;
     height: 90%;
   }
   

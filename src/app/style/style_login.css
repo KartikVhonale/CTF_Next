@@ -1,0 +1,65 @@
+.login-box{
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.user{
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.username{
+    padding-top: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 30px;
+    color: azure;
+    flex-direction: row;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.password{
+    padding-top: 2px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 30px;
+    color: azure;
+    flex-direction: row;
+    font-family: 'Courier New', Courier, monospace;
+}
+.username-input{ 
+    padding: 3px;
+    border-radius: 1vh;  
+    padding-left: 10px;
+    font-size: 30px;
+    color: azure;
+    background: #000000;
+}
+.password-input{ 
+    padding: 3px;
+    border-radius: 1vh;  
+    padding-left: 10px;
+    font-size: 30px;
+    color: azure;
+    background: #000000;
+}
+
+.button{
+    border-radius: 1vh;
+    padding-bottom: 2px;
+    font-size: 30px;
+    color: aliceblue;
+    height: 45px;
+    width: 150px;
+    background: #131E44;
+    margin-bottom: 230px;
+    margin-top: 20px;
+    border-color: purple;
+    
+}
+
+.button:hover{
+    background:blue;
+}
