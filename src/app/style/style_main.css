@@ -15,7 +15,13 @@
     flex-direction: column;
     
   }
-  
+  .link{
+    margin-top: 2.4%;
+    font-size: 129%;
+    margin-left: 1.2%;
+    color: rgb(216, 0, 216);
+    /* background: #000; */
+  }
   
   .header{
      width: 100%;
@@ -115,13 +121,14 @@
     color: #FFF;
     font-family: Inconsolata;
     font-size: 24px;
-    width: 95%;
-    height: 9 em;
+    width: 42rem;
+    height: 45 rem;
     /* font-style: normal; */
     font-weight: 400;
     /* line-height: normal; */
     letter-spacing: 2.8px;
     margin-top: 2.1%;
+    margin-left: 1.2%;
     /* background-color: aquamarine; */
   }
   
@@ -134,7 +141,7 @@
   }
   .textbox{
     height: auto;
-    width: auto;
+    width: 100%;
   }
   
   .right{

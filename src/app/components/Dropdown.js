@@ -1,7 +1,10 @@
 import React from 'react'
 import '@/app/style/style_main.css';
 
-const Dropdown = () => {
+const Dropdown = (props) => {
+    const hint_1 = props.hint1;
+    const hint_2 = props.hint2;
+    const hint_3 = props.hint3;
   return (
     <>
          <div className="downbox">
