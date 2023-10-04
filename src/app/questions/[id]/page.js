@@ -3,9 +3,12 @@ import Image from 'next/image'
 import '@/app/style/style_main.css';
 import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
+import { questions_10 } from '@/app/data';
 
 const page = ({params}) => {
   const [activeQuestion,setActiveQuestion]= useState(0);
+  const question = questions_10.questions[params.id].question;
+  const [points, setPoints]=useState(3);
   function handelClick() {
     console.log("button is clicked");
     
@@ -26,7 +29,7 @@ const page = ({params}) => {
             </div>
             <div className="Ctf_submmition">
                 <div className="text_s" id='question' name='question'>
-                {/* {question} */}
+                {question}
                 </div>
                 <div className="link"><a href="">question files or link to use</a></div>
                 <div className="button_s">
@@ -50,7 +53,7 @@ const page = ({params}) => {
                 </div>
 
             </div>
-           <Dropdown hint1="hint1" hint2="hint2" hint3="hint3"/>
+           <Dropdown hint1={questions_10.questions[params.id].hint1} hint2={questions_10.questions[params.id].hint2} hint3={questions_10.questions[params.id].hint3}/>
         </div>
     </div>
     </>

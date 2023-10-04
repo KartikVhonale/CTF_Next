@@ -1,9 +1,9 @@
 import React from 'react'
 import '@/app/style/style_modal.css';
-const Hint1 = () => {
+const Hint1 = (props) => {
   return (
     <>
-    <p className='hint-bg'>This is Hint 1</p>
+    <p className='hint-bg'>{props.hint_text}</p>
     </>
   )
 }
