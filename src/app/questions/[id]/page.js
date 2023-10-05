@@ -7,6 +7,7 @@ import { questions_10 } from '../../../../data';
 import { useRouter } from 'next/router';
 import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
+import { redirects } from '../../../../next.config';
 
 const page = ({params}) => {
   const currentFlag = "flag_"+ params.id;
@@ -18,6 +19,7 @@ const page = ({params}) => {
   function handelClick() {
     console.log("button is clicked");
     // if(process.env.currentFlag== flagInIt){
+        redirects('/questions/2');
     // }
   }
   function handelChange(){
