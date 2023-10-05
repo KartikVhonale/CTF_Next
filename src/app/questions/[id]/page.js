@@ -4,7 +4,9 @@ import '@/app/style/style_main.css';
 import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
 import { questions_10 } from '../../../../data';
+import { useRouter } from 'next/router';
 import { redirect } from 'next/dist/server/api-utils';
+import Link from 'next/link';
 
 const page = ({params}) => {
   const currentFlag = "flag_"+ params.id;
@@ -16,7 +18,6 @@ const page = ({params}) => {
   function handelClick() {
     console.log("button is clicked");
     // if(process.env.currentFlag== flagInIt){
-        redirect('/questions/${next_id}');
     // }
   }
   function handelChange(){
@@ -40,15 +41,15 @@ const page = ({params}) => {
                 <div className="text_s" id='question' name='question'>
                 {question}
                 </div>
-                <div className="link"><a href="">question files or link to use</a></div>
-                <form className="button_s" >
+                <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
+                <div className="button_s" >
                     <div className="text_field">
                         <input type="text" className="field" id="flag_input" name="flag_input" value={flagInIt} onChange={handelChange}/>
                     </div>
                     <div className="sub_but">
                         <button className="submit_button" onClick={handelClick}>Submit</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         </div>
