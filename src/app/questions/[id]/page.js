@@ -4,25 +4,30 @@ import '@/app/style/style_main.css';
 import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
 import { questions_10 } from '../../../../data';
-import { useRouter } from 'next/router';
 import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
 import { redirects } from '../../../../next.config';
+import { useRouter } from "next/navigation"
+// import {DataContext} from "../../../context/data.context"
 
 const page = ({params}) => {
-  const currentFlag = "flag_"+ params.id;
+  const route = useRouter();
   const [activeQuestion,setActiveQuestion]= useState(0);
   const question = questions_10.questions[params.id].question;
-  const [points, setPoints]=useState(3);
   const [flagInIt,setFlagInIt] = "";
-  const next_id = params.id +1;
-  function handelClick() {
+  const next_id = parseInt(params.id) + 1;
+//   const {flag, setFlag, points, setPoints} = useContext(DataContext);
+
+  // context, redux, zustand
+  function handleClick() {
     console.log("button is clicked");
-    // if(process.env.currentFlag== flagInIt){
-        redirects('/questions/2');
-    // }
+    route.push(`/questions/${next_id}`);
+    if(process.env.flag_1 == flagInIt){
+        console.log("correct flag is submitted");
+        
+    }
   }
-  function handelChange(){
+  function handleChange(){
     console.log(flagInIt);
   }
   return (
@@ -46,10 +51,10 @@ const page = ({params}) => {
                 <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
                 <div className="button_s" >
                     <div className="text_field">
-                        <input type="text" className="field" id="flag_input" name="flag_input" value={flagInIt} onChange={handelChange}/>
+                        <input type="text" className="field" id="flag_input" name="flag_input" value={flagInIt} onChange={handleChange}/>
                     </div>
                     <div className="sub_but">
-                        <button className="submit_button" onClick={handelClick}>Submit</button>
+                        <button className="submit_button" onClick={handleClick}>Submit</button>
                     </div>
                 </div>
             </div>
