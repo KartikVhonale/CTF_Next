@@ -19,15 +19,17 @@ const page = ({params}) => {
 
   // context, redux, zustand
   function handleClick() {
-    console.log("button is clicked");
-    route.push(`/questions/${next_id}`);
-    if(process.env.flag_1 == flagInIt){
+      if(questions_10.questions[params.id].flag||true){
+        console.log("button is clicked");
+        route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
         
     }
   }
+
+  
   function handleChange(){
-    console.log(flagInIt);
+    if(flagInIt == questions_10.questions[params.id].flag){}
   }
   return (
     <>
@@ -40,7 +42,7 @@ const page = ({params}) => {
                     Question : {next_id}
                 </div>
                 <div className="question_difficulty">
-                    Hard
+                    {questions_10.questions[params.id].dif}
                 </div>
             </div>
             <div className="Ctf_submmition">
@@ -48,14 +50,16 @@ const page = ({params}) => {
                 {question}
                 </div>
                 <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
-                <div className="button_s" >
+                <form className="button_s" >
                     <div className="text_field">
-                        <input type="text" className="field" id="flag_input" name="flag_input" value={flagInIt} onChange={handleChange}/>
+                        <input type="text" className="field" id="flag_input" n" value={flagInIt} onChange={(e)=>{
+                         setFlagInIt(e.target.value)
+                        }}/>
                     </div>
                     <div className="sub_but">
                         <button className="submit_button" onClick={handleClick}>Submit</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         </div>

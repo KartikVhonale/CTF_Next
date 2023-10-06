@@ -4,10 +4,11 @@ export const questions_10 = {
       {
         id: 1,
         question: 'question1 ',
-        correctAnswer: 'Paris',
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
+        flag: '123456789onehash',
       },
       {
         id: 2,
@@ -16,6 +17,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 3,
@@ -24,6 +26,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 4,
@@ -32,6 +35,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 5,
@@ -40,6 +44,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 6,
@@ -48,6 +53,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 7,
@@ -56,6 +62,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 8,
@@ -64,6 +71,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 9,
@@ -72,6 +80,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       },
       {
         id: 10,
@@ -80,6 +89,7 @@ export const questions_10 = {
         hint1: 'this is the hint 1 for all question',
         hint2: 'hint2',
         hint3: 'hint3',
+        dif: 'Easy',
       }
     ],
   };
