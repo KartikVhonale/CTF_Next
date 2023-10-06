@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Router, { useRouter } from 'next/navigation'
-import '@/app/style/style_probnav.css'
+import '../style/style_probnav.css'
 const Probnav = () => {
     const router =useRouter();
     const handleClick = (a) => {

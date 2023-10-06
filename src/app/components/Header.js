@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import '@/app/style/style_main.css';
-import '@/app/style/style_clock.css';
+import '../style/style_main.css';
+import '../style/style_clock.css';
 import Clock from './Clock'
 const Header = () => {
   return (

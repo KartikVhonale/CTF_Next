@@ -1,5 +1,5 @@
 import React from 'react'
-import '@/app/style/style_modal.css';
+import '../style/style_modal.css';
 const Hint2 = (props) => {
   return (
     <>

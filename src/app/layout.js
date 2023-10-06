@@ -1,4 +1,4 @@
-import { Points_data } from '../context/context'
+import { PointsData, Points_data } from '../context/PointsContext'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
@@ -16,13 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Points_data>
-        <div>
           <Header/>
           {children}
           <Footer/>
-        </div>
-        </Points_data>
       </body>
     </html>
   )

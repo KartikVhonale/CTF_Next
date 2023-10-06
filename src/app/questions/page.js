@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import '@/app/style/style_main.css';
+import '../style/style_main.css';
 import Dropdown from '../components/Dropdown';
 import { useState } from 'react';
 

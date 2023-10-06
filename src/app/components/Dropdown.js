@@ -1,7 +1,7 @@
 "use client"
 import React,{useState} from 'react'
-import '@/app/style/style_main.css';
-import '@/app/style/style_modal.css';
+import '../style/style_main.css';
+import '../style/style_modal.css';
 import Hint1 from './Hint1';
 import Hint2 from './Hint2';
 import Answer from './Answer';

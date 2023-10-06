@@ -1,5 +1,5 @@
 "use client"
-import '@/app/style/style_login.css'
+import '../style/style_login.css'
 import React, { Component } from 'react'
 const Login = () => {
   
