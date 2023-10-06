@@ -2,25 +2,36 @@
 import React from 'react'
 import Router, { useRouter } from 'next/navigation'
 import '../style/style_probnav.css'
-const Probnav = () => {
-    const router =useRouter();
-    const handleClick = (a) => {
-        router.push('/questions/${a}');
-      };
-      
+import ButtonNum1 from './ButtonNum1'
+const Probnav = (props) => {
+      const router =useRouter();
+      const b = parseInt(props.currentQ)-1;
+      const c = parseInt(props.currentQ)+1;
+      function handlePrev(){
+        if(b>=0)
+        router.push(`/questions/${b}`);
+      }
+      function handleNext(){
+        if(c<10)
+        router.push(`/questions/${c}`);
+      }
   return (
     <>
 
     <div className='column'>
-        <button className='back'> Previous </button>
-        <button className='buttonnum' onClick={()=>{{handleClick(1);}}}>1</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(2);}}}>2</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(3);}}}>3</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(4);}}}>4</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(5);}}}>5</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(6);}}}>6</button>
-        <button className='buttonnum' onClick={()=>{{handleClick(7);}}}>7</button>
-        <button className='back'> Next </button>
+        {props.currentQ}
+        <button className='back' onClick={handlePrev}> Previous </button>
+        <ButtonNum1 num={1}/>
+        <ButtonNum1 num={2}/>
+        <ButtonNum1 num={3}/>
+        <ButtonNum1 num={4}/>
+        <ButtonNum1 num={5}/>
+        <ButtonNum1 num={6}/>
+        <ButtonNum1 num={7}/>
+        <ButtonNum1 num={8}/>
+        <ButtonNum1 num={9}/>
+        <ButtonNum1 num={10}/>
+        <button className='back' onClick={handleNext}> Next </button>
     </div>
     </>
   )

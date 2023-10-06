@@ -187,8 +187,10 @@
   
   
   .downbox{
-    height: 75%;
+    height: 70%;
     width: 100%;
+    padding-top: -10%;
+    padding-bottom: 10% ;
     align-items: center;
     justify-content: center;
     background-color:rgba(16, 27, 64, 0.90);

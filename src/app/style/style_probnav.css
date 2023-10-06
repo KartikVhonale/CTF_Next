@@ -3,14 +3,15 @@
     flex-direction: row;
     background: black;
     padding: 2vh;
-    margin: 5px 50%;
+    margin-left:50%;
+    margin-top: 85vh;
     transform: translate(-50%,0);
     width: 800px;
     align-items: center;
     justify-content: center;
     border-radius: 3vh;
     padding-left: 60px;
-
+    position:fixed;
 }
 
 .buttonnum{

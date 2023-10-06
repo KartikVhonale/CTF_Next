@@ -1,7 +1,7 @@
 "use client";
 import { useState, createContext, useContext, useEffect } from "react";
 
-export const PointsData = createContext(null);
+const PointsData = createContext(null);
 
 // export const DataStateProvider = ({ children }) => {
 //   const [points,setPoints] = useState(0);
@@ -17,7 +17,8 @@ function PointsProvider({ children }) {
       <PointsData.Provider value={{points, setPoints, flags, setFlags }}>
         {children}
       </PointsData.Provider>
-    );
+    )
   }
 
   export default PointsProvider;
+  export const usePointsContext = () => useContext(PointsData);

@@ -6,11 +6,12 @@ import { questions_10 } from '../../../../data';
 import Link from 'next/link';
 import { useRouter } from "next/navigation"
 import Probnav from '../../components/Probnav';
+import { usePointsContext } from '../../context/PointsContext';
 // import {DataContext} from "../../../context/data.context"
 
 const page = ({params}) => {
   const route = useRouter();
-  const [activeQuestion,setActiveQuestion]= useState(0);
+  const{points, setPoints, flags, setFlags }=usePointsContext();    
   const question = questions_10.questions[params.id].question;
   const [flagInIt,setFlagInIt] = "";
   const next_id = parseInt(params.id) + 1;
@@ -36,7 +37,7 @@ const page = ({params}) => {
 
                 <div className="question_name_box">
                     <div className="question_name">
-                    Question : {params.id}
+                    Question : {next_id}
                 </div>
                 <div className="question_difficulty">
                     Hard
@@ -71,7 +72,7 @@ const page = ({params}) => {
            <Dropdown hint1={questions_10.questions[params.id].hint1} hint2={questions_10.questions[params.id].hint2} hint3={questions_10.questions[params.id].hint3}/>
         </div>
     </div>
-    {/* <Probnav/> */}
+    <Probnav currentQ={[params.id]}/>
     </>
   )
 }
