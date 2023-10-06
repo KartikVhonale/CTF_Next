@@ -1,0 +1,33 @@
+.column{
+    display: flex;
+    flex-direction: row;
+    background: black;
+    padding: 2vh;
+    margin: 5px 50%;
+    transform: translate(-50%,0);
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3vh;
+    padding-left: 60px;
+
+}
+
+.buttonnum{
+    height: 5vh;
+    width: 5vh; 
+    margin-right: 30px;
+    border-radius: 1vh;
+    color: blue;
+    font-size: medium;
+    
+}
+
+.back{
+    height: 5vh;
+    width: 15vh; 
+    margin-right: 30px;
+    border-radius: 1vh;
+    color: blue;
+    font-size: medium;
+}

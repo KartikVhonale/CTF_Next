@@ -8,6 +8,7 @@ import { redirect } from 'next/dist/server/api-utils';
 import Link from 'next/link';
 import { redirects } from '../../../../next.config';
 import { useRouter } from "next/navigation"
+import Probnav from '../../components/Probnav';
 // import {DataContext} from "../../../context/data.context"
 
 const page = ({params}) => {
@@ -73,6 +74,7 @@ const page = ({params}) => {
            <Dropdown hint1={questions_10.questions[params.id].hint1} hint2={questions_10.questions[params.id].hint2} hint3={questions_10.questions[params.id].hint3}/>
         </div>
     </div>
+    <Probnav/>
     </>
   )
 }

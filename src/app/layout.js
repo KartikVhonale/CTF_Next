@@ -1,6 +1,6 @@
+import { Points_data } from '../context/context'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Structure from './components/structure'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -16,11 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Structure> */}
+        <Points_data>
+        <div>
           <Header/>
           {children}
           <Footer/>
-        {/* </Structure> */}
+        </div>
+        </Points_data>
       </body>
     </html>
   )
