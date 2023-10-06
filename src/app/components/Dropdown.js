@@ -5,32 +5,65 @@ import '../style/style_modal.css';
 import Hint1 from './Hint1';
 import Hint2 from './Hint2';
 import Answer from './Answer';
+import {usePointsContext} from '../context/PointsContext';
+import { questions_10 } from '../../../data';
 
 const Dropdown = (props) => {
-
+  const { points, setPoints, flags, setFlags, data, updateHints }= usePointsContext();
   const [imageSrc1, setImageSrc1] = useState('/lock_img.png');
   const [imageSrc2, setImageSrc2] = useState('/lock_img.png');
   const [imageSrc3, setImageSrc3] = useState('/lock_img.png');
   const [showModal1,setShowModal1]= useState(false);
   const [showModal2,setShowModal2]= useState(false);
   const [showModal3,setShowModal3]= useState(false);
-
+  const useId = props.questionId;
+  // console.log(data[parseInt(useId)+1]);
+  //   if(data[parseInt(useId)+1]&&data[parseInt(useId)+1].hint1==true){
+  //     setImageSrc1('/unlock.png');
+  //   }
   function handelClick1(){
-    console.log("get up");
     setImageSrc1('/unlock.png');
+    updateHints({
+        questionNumber:parseInt(useId)+1,
+        data: {
+          ansCorrect: false,
+            hint1:true,
+            hint2:false,
+            hint3:false
+        }
+      });
   }
+  
   function handelClick2(){
     console.log("get up");
     if(imageSrc1=='/unlock.png'){
     setImageSrc2('/unlock.png');
     setShowModal2(true); 
+    updateHints({
+      questionNumber:parseInt(useId)+1,
+      data: {
+        ansCorrect: false,
+          hint1:true,
+          hint2:true,
+          hint3:false
+      }
+    });
     }
   }
   function handelClick3(){
     console.log("get up");
     if(imageSrc2=='/unlock.png'){
       setImageSrc3('/unlock.png');
-      setShowModal3(true); 
+      setShowModal3(true);
+      updateHints({
+        questionNumber:parseInt(useId)+1,
+        data: {
+          ansCorrect: false,
+            hint1:true,
+            hint2:true,
+            hint3:true
+        }
+      }); 
       } 
   }
   const MyModal1 =()=>{

@@ -1,81 +1,76 @@
 "use client";
+
 import { useState, createContext, useContext, useEffect } from "react";
 
 const PointsData = createContext(null);
 
 function PointsProvider({ children }) {
-    const [points,setPoints] = useState(0);
-    const [flags,setFlags] = useState(0);
-    const hints10={
-      hints:[
-       {id:1,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:2,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:3,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:4,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:5,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:6,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:7,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:8,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:9,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      {id:10,
-        ansCorrect:0,  
-        hint1:0,
-        hint2:0,
-        hint3:0,
-      },
-      ]
+  const [points, setPoints] = useState(0);
+  const [flags, setFlags] = useState(0);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    try {
+      const storedPoints = parseInt(localStorage.getItem("data_points"));
+      const storedFlags = parseInt(localStorage.getItem("data_flags"));
+      const storedData = JSON.parse(localStorage.getItem("data_data"));
+
+      if (!isNaN(storedPoints)) {
+        setPoints(storedPoints);
+      }
+      if (!isNaN(storedFlags)) {
+        setFlags(storedFlags);
+      }
+      if (storedData) {
+        setData(storedData);
+      }
+    } catch (e) {
+      console.error(e);
     }
-    return (
-      <PointsData.Provider value={{points, setPoints, flags, setFlags }}>
-        {children}
-      </PointsData.Provider>
-    )
+  }, []);
+
+  useEffect(() => {
+    if (points != 0 && flags != 0) {
+      localStorage.setItem("data_points", points.toString());
+      localStorage.setItem("data_flags", flags.toString());
+      localStorage.setItem("data_data", JSON.stringify(data));
+    }
+  }, [points, flags, data]);
+
+  function updateHints(newData) {
+    const temp = { ...data };
+    temp[newData.questionNumber] = newData.data;
+    setData(temp);
   }
 
-  export default PointsProvider;
-  export const usePointsContext = () => useContext(PointsData);
+  return (
+    <PointsData.Provider value={{ points, setPoints, flags, setFlags, data, updateHints }}>
+      {children}
+    </PointsData.Provider>
+  );
+}
+
+export default PointsProvider;
+export const usePointsContext = () => useContext(PointsData);
+
+// {
+//   questionNumber: 2,
+//   data: {
+//     anscorrect: false,
+//   }
+// }
+// updateHints({
+//   questionNumber: 2,
+//   data: {
+// 
+//   }
+// });
+// questionNumber: 2;
+    // data: {
+    //   ansCorrect: false,
+    //   hint1:false,
+    //   hint2:false,
+    //   hint3:false,
+    //   timeCompletion: new Date();
+    // }
+  

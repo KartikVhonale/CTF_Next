@@ -17,9 +17,8 @@ const Probnav = (props) => {
       }
   return (
     <>
-
     <div className='column'>
-        {props.currentQ}
+        {/* {props.currentQ} */}
         <button className='back' onClick={handlePrev}> Previous </button>
         <ButtonNum1 num={1}/>
         <ButtonNum1 num={2}/>

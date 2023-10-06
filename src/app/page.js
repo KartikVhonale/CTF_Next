@@ -1,11 +1,11 @@
-import Login from "./components/Login"
+import About from "./components/About"
 
-const Home = ()=> {
+const Page = ()=> {
   return (
     <>
-    <Login/>
+    <About/>
     </>
   )
 }
 
-export default Home
+export default Page
