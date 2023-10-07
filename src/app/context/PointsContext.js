@@ -8,11 +8,13 @@ function PointsProvider({ children }) {
   const [points, setPoints] = useState(0);
   const [flags, setFlags] = useState(0);
   const [data, setData] = useState({});
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     try {
       const storedPoints = parseInt(localStorage.getItem("data_points"));
       const storedFlags = parseInt(localStorage.getItem("data_flags"));
+      const storedUser = JSON.parse(localStorage.getItem("data_user"));
       const storedData = JSON.parse(localStorage.getItem("data_data"));
 
       if (!isNaN(storedPoints)) {
@@ -21,8 +23,11 @@ function PointsProvider({ children }) {
       if (!isNaN(storedFlags)) {
         setFlags(storedFlags);
       }
-      if (storedData) {
+      if (!isNaN(storedData)) {
         setData(storedData);
+      }
+      if(!isNaN(storedUser)){
+        setUser(storedUser);
       }
     } catch (e) {
       console.error(e);
@@ -33,9 +38,10 @@ function PointsProvider({ children }) {
     if (points != 0 && flags != 0) {
       localStorage.setItem("data_points", points.toString());
       localStorage.setItem("data_flags", flags.toString());
+      localStorage.setItem("data_User", flags.toString());
       localStorage.setItem("data_data", JSON.stringify(data));
     }
-  }, [points, flags, data]);
+  }, [points, flags, user,data]);
 
   function updateHints(newData) {
     const temp = { ...data };
@@ -44,7 +50,7 @@ function PointsProvider({ children }) {
   }
 
   return (
-    <PointsData.Provider value={{ points, setPoints, flags, setFlags, data, updateHints }}>
+    <PointsData.Provider value={{ points, setPoints, flags, setFlags,user,setUser, data, updateHints }}>
       {children}
     </PointsData.Provider>
   );

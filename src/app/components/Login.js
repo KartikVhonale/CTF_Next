@@ -4,8 +4,11 @@ import React, { Component ,useState} from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { useRouter } from 'next/navigation'
+import { usePointsContext } from '../context/PointsContext'
 
 const Login = () => {
+       const { points, setPoints, flags, setFlags,user,setUser
+        , data, updateHints }= usePointsContext();
        const router = useRouter();
        const [username,setUsername] = useState("");
        const [password,setPassword] = useState("");
@@ -17,6 +20,7 @@ const Login = () => {
         setPassword(event.target.value);
        };
        function handelClick(){
+        setUser(username);
         if(password%2==0){
           router.push(`/questions/0`);
         }

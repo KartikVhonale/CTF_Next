@@ -12,12 +12,14 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const page = ({params}) => {
-  const route = useRouter();
-  const{points, setPoints, flags, setFlags, saveCookies }=usePointsContext();    
+    
+  const { points, setPoints, flags, setFlags,user,setUser, data, updateHints }= usePointsContext();
+  const route = useRouter();  
   const question = questions_10.questions[params.id].question;
   const [flagInIt,setFlagInIt] = "";
   const next_id = parseInt(params.id) + 1;
   const id1 = parseInt(params.id);
+  const [avaiPoints,setAvaiPoints]=useState(10);
   const strFlag= questions_10.questions[params.id].flag;
 
   // context, redux, zustand
@@ -33,16 +35,25 @@ const page = ({params}) => {
 
   function handleClick(event) {
     event.preventDefault();
+    if(data[next_id].hint1==true){
+    avaiPoints = avaiPoints-3;
+    }
+    if(data[next_id].hint2==true){
+        avaiPoints = avaiPoints-3;
+    }
+    if(data[next_id].hint3==true){
+            avaiPoints = avaiPoints-3;
+    }
     if(name === strFlag){
         route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
-        addDocumentToCollection("CTFStore", "Adnan", {
+        addDocumentToCollection("CTFStore", user , {
             flags: flags + 1,
             score: points + 3,
             timeSubmission: (new Date()).toISOString()
         })
         setFlags(flags => flags + 1);
-        setPoints(points => points + 3);
+        setPoints(points => points + avaiPoints);
     }
     else 
     {alert("Wrong answer");}

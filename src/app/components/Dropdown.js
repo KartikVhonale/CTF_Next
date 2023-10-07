@@ -9,7 +9,8 @@ import {usePointsContext} from '../context/PointsContext';
 import { questions_10 } from '../../../data';
 
 const Dropdown = (props) => {
-  const { points, setPoints, flags, setFlags, data, updateHints }= usePointsContext();
+  const { points, setPoints, flags, setFlags,user,setUser,
+     data, updateHints }= usePointsContext();
   const [imageSrc1, setImageSrc1] = useState('/lock_img.png');
   const [imageSrc2, setImageSrc2] = useState('/lock_img.png');
   const [imageSrc3, setImageSrc3] = useState('/lock_img.png');
@@ -17,11 +18,23 @@ const Dropdown = (props) => {
   const [showModal2,setShowModal2]= useState(false);
   const [showModal3,setShowModal3]= useState(false);
   const useId = props.questionId;
-  // console.log(data[parseInt(useId)+1]);
-  //   if(data[parseInt(useId)+1]&&data[parseInt(useId)+1].hint1==true){
-  //     setImageSrc1('/unlock.png');
-  //   }
+  if(!data[parseInt(useId)+1]){
+    updateHints({
+      questionNumber:parseInt(useId)+1,
+      data: {
+        ansCorrect: false,
+          hint1:false,
+          hint2:false,
+          hint3:false
+      }
+    });
+  }
+
+    // if(data[parseInt(useId)+1]&&data[parseInt(useId)+1].hint1==true){
+    //   setImageSrc1('/unlock.png');
+    // }
   function handelClick1(){
+    console.log(user);
     setImageSrc1('/unlock.png');
     updateHints({
         questionNumber:parseInt(useId)+1,
@@ -35,7 +48,7 @@ const Dropdown = (props) => {
   }
   
   function handelClick2(){
-    console.log("get up");
+    console.log(user);
     if(imageSrc1=='/unlock.png'){
     setImageSrc2('/unlock.png');
     setShowModal2(true); 
