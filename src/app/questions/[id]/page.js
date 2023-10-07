@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { useRouter } from "next/navigation"
 import Probnav from '../../components/Probnav';
 import { usePointsContext } from '../../context/PointsContext';
-// import {DataContext} from "../../../context/data.context"
 
 const page = ({params}) => {
   const route = useRouter();
@@ -15,26 +14,32 @@ const page = ({params}) => {
   const question = questions_10.questions[params.id].question;
   const [flagInIt,setFlagInIt] = "";
   const next_id = parseInt(params.id) + 1;
-//   const {flag, setFlag, points, setPoints} = useContext(DataContext);
+  const strFlag= questions_10.questions[params.id].flag;
 
   // context, redux, zustand
+  const [isCorrect,setIsCorrect]= useState(0)
+  function onSubmit(){
+    if(flagInIt === strFlag );
+    setIsCorrect(1);
+  } 
+
   function handleClick() {
-      if(questions_10.questions[params.id].flag||true){
+      onSubmit()
+      if(isCorrect){
         console.log("button is clicked");
         route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
-        
+        setFlags(flag+1);
+        setPoints(points+1);   
     }
+    else 
+    {alert("Wrong answer");}
   }
 
-  
-  function handleChange(){
-    if(flagInIt == questions_10.questions[params.id].flag){}
-  }
   return (
     <>
          <div className="mainbox">
-        <div className="left">
+          <div className="left">
             <div className="extrabox">
 
                 <div className="question_name_box">
@@ -52,9 +57,9 @@ const page = ({params}) => {
                 <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
                 <form className="button_s" >
                     <div className="text_field">
-                        <input type="text" className="field" id="flag_input" n" value={flagInIt} onChange={(e)=>{
-                         setFlagInIt(e.target.value)
-                        }}/>
+                        <input type="text" className="field" id="flag_input" value={flagInIt} 
+                        // onChange={}
+                        />
                     </div>
                     <div className="sub_but">
                         <button className="submit_button" onClick={handleClick}>Submit</button>
