@@ -62,6 +62,7 @@ export const questions_10 = {
         hint2: 'hint2',
         hint3: 'hint3',
         dif: 'Easy',
+        flag: '123456789onehash',
       },
       {
         id: 8,

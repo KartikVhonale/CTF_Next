@@ -1,0 +1,290 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #111926;
+   width: 100wh;
+   height: 100%;
+}
+
+.img1{
+    margin-left: 2vh;
+    height:5vw;
+    width: 15vw;
+}
+
+.img2{
+    height:7vw;
+    width: 30vw;
+}
+
+.img3{
+    height:7vw;
+    margin-right: 4vh;
+}
+
+.main {
+    background-image: url('/main_image.svg');    
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vh;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    
+}
+
+.layer{
+    background-color: rgba(16, 20, 49, 0.5);
+    width: 100%;
+}
+
+.ctf_header {
+    background-color: #01073b;
+    font-family: 'Audiowide';
+    color: #FFCA30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100wh;
+    padding: 1.5vh;
+    margin-top: 15vh;
+}
+
+.ctf_header h1 {
+    font-size: 5vw;
+    margin-left: 3vw;
+    letter-spacing: 0.5vw;
+}
+.evereg{
+    margin-right: 5vw;
+}
+.ctf_header_button1 {
+    background: none;
+    border: 2px solid #45EDF2;
+    color: #45EDF2;
+    padding: 1vw 2vw;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 2vw;
+}
+
+.ctf_header_button2 {
+    background: none;
+    border: 2px solid #45EDF2;
+    color: #45EDF2;
+    padding: 1vw 2vw;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 2vw;
+    /* width: 175px; */
+    margin-left: 1vw;
+
+}
+
+.page_start {
+    margin: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.blank_part {
+    width: 100vw;
+    height: 30vw;
+    background-color: #343434;
+    margin-bottom: 30px;
+    background-image: url('/homeimage.jpg');  
+    transition: transform .2s;
+    overflow: hidden;
+}
+
+/* .starts_in_box {
+    margin-left: 5vw;
+    width: 30vw;
+    height:20vw;
+    border-radius: 2vw;
+    background-color: #03113F;
+    box-shadow: 1vw 1vw 0px 0px #253465;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+}
+
+.starts_in_box h1 {
+    font-family: 'Inconsolata';
+    margin-left: 10px;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.event-title {
+    order: 1;
+}
+
+.event-time {
+    order: 2;
+}
+
+.register_button {
+    order: 3;
+    color: white;
+    background-color: #0770F4;
+    font-size: 2vw;
+    font-family: 'Inder';
+    cursor: pointer;
+    margin-top: 2vw;
+    padding: .5vw 1vw;
+    border-radius: 3vw;
+} */
+
+.event_info {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    border-radius: 26px;
+    padding: 5% ;
+    padding-top: 3%;
+    background-color: rgb(3, 1, 61);
+    color: white;
+
+}
+
+.event_info h1 {
+    /* font-family: 'Inder'; */
+    font-size: 42px;
+    margin-bottom: 3vh;
+}
+
+.event_info p {
+    font-family: 'Inconsolata';
+    font-size: 22px; 
+}
+
+.rules {
+    /* background-color: #192141; */
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    align-self: center;
+    border-radius: 26px;
+    padding: 5%;
+    padding-top: 3%;
+    background-color: rgb(3, 1, 61);
+    
+}
+
+.rules .span {
+    
+    color: white;
+    /* font-family: 'Inder'; */
+    font-size: 42px;
+    margin-bottom: 2vh;
+    
+}
+
+.rules p {
+    color: white;
+    font-size: 22px;
+    line-height: 30px;
+    font-family: 'Inconsolata';
+    padding: 5px;
+}
+
+.rules .span2 {
+    font-family: 'Inconsolata';
+    color: white;
+    font-size: 32px;
+    position: relative;
+    left: 60%;
+    line-height: 13 0%;
+}
+
+.clogo {
+   
+    display: inline-block;
+    height: 110px;
+}
+
+.reactangle {
+    background-color: #101B40;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+}
+
+.sponsor {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    border-radius: 26px;
+    padding: 5%;
+    padding-top: 4%;
+    background-color: rgb(3, 1, 61);
+}
+
+.sponsor .span {
+    color: white;
+    font-family: 'Inder';
+    font-size: 22px;
+    
+    
+}
+
+.sponsor h2 {
+    padding-top: 8px;
+    font-family: 'Inconsolata';
+    color: white;
+}
+
+.sponsor .span2 {
+    display: flex;
+    align-items: left;
+    font-family: 'Inconsolata';
+    color: white;
+    font-size: 200%;
+    /* position: relative;
+    left: 60%; */
+    width: 30%;
+}   
+.sponsor .span2 .span2text{
+    align-self: center;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    
+  }
+  
+  .text {
+    margin-right: 10px; 
+    font-size: 10000px;
+  }
+  
+  .image {
+    width: 100px;
+    height: auto; 
+  }
+  
+  .group h3{
+    padding-top: 10px;
+  }
+  
