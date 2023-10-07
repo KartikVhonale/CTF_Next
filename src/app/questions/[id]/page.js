@@ -41,11 +41,11 @@ const page = ({params}) => {
         t1 = true;
     }
     if(data[next_id].hint2==true){
-        tpoints-=2
+        tpoints-=3
         t2 = true;
     }
     if(data[next_id].hint3==true){
-        tpoints-=2
+        tpoints-=4
         t3= true;
     }
     if(name === strFlag && data[next_id].ansCorrect==false){

@@ -12,7 +12,7 @@ const Probnav = (props) => {
         router.push(`/questions/${b}`);
       }
       function handleNext(){
-        if(c<10)
+        if(c<7)
         router.push(`/questions/${c}`);
       }
   return (
@@ -27,9 +27,6 @@ const Probnav = (props) => {
         <ButtonNum1 num={5}/>
         <ButtonNum1 num={6}/>
         <ButtonNum1 num={7}/>
-        <ButtonNum1 num={8}/>
-        <ButtonNum1 num={9}/>
-        <ButtonNum1 num={10}/>
         <button className='back' onClick={handleNext}> Next </button>
     </div>
     </>

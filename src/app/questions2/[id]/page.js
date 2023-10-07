@@ -2,7 +2,7 @@
 import '../../style/style_main.css';
 import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
-import { questions_10 } from '../../../../data';
+import { questions_10 } from '../../../../data2';
 import Link from 'next/link';
 import { useRouter } from "next/navigation"
 import Probnav from '../../components/Probnav';
@@ -12,14 +12,15 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const page = ({params}) => {
-  const route = useRouter();
-  const{points, setPoints, flags, setFlags, saveCookies }=usePointsContext();    
+    
+  const { points, setPoints, flags, setFlags,user,setUser, data, updateHints }= usePointsContext();
+  const route = useRouter();  
   const question = questions_10.questions[params.id].question;
   const [flagInIt,setFlagInIt] = "";
   const next_id = parseInt(params.id) + 1;
   const id1 = parseInt(params.id);
+  const [avaiPoints,setAvaiPoints]=useState(10);
   const strFlag= questions_10.questions[params.id].flag;
-
   // context, redux, zustand
   // easy question 10 points   hint1: -2 hint2: -3 hint3: -4
   // medium question 20 points hint1: -4 hint2: -6 hint3: -8
@@ -33,16 +34,39 @@ const page = ({params}) => {
 
   function handleClick(event) {
     event.preventDefault();
-    if(name === strFlag){
+    let tpoints = avaiPoints;
+    let t1 = false, t2 = false, t3 = false;
+    if(data[next_id].hint1==true){
+        tpoints-=2
+        t1 = true;
+    }
+    if(data[next_id].hint2==true){
+        tpoints-=3
+        t2 = true;
+    }
+    if(data[next_id].hint3==true){
+        tpoints-=4
+        t3= true;
+    }
+    if(name === strFlag && data[next_id].ansCorrect==false){
         route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
-        addDocumentToCollection("CTFStore", "Adnan", {
+        addDocumentToCollection("CTFStore", "Adnan" , {  
             flags: flags + 1,
-            score: points + 3,
+            score: points + tpoints,
             timeSubmission: (new Date()).toISOString()
         })
         setFlags(flags => flags + 1);
-        setPoints(points => points + 3);
+        setPoints(points => points + tpoints);
+        updateHints({
+            questionNumber:parseInt(next_id),
+            data: {
+              ansCorrect: true,
+                hint1:t1,
+                hint2:t2,
+                hint3:t3
+            }
+          });
     }
     else 
     {alert("Wrong answer");}
@@ -69,8 +93,9 @@ const page = ({params}) => {
                 </div>
                 <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
                 <div className="button_s" >
+
                     <div className="text_field">
-                        <input type="text" className="field" id="flag_input" value={flagInIt}  onChange={inputEvent}
+                        <input type="text" className="field" id="flag_input" value={flagInIt} placeholder='Enter The Flag' onChange={inputEvent}
                         />
                     </div>
                     <div className="sub_but">
