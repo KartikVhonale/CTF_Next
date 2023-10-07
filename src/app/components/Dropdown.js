@@ -11,9 +11,6 @@ import { questions_10 } from '../../../data';
 const Dropdown = (props) => {
   const { points, setPoints, flags, setFlags,user,setUser,
      data, updateHints }= usePointsContext();
-  const [imageSrc1, setImageSrc1] = useState('/lock_img.png');
-  const [imageSrc2, setImageSrc2] = useState('/lock_img.png');
-  const [imageSrc3, setImageSrc3] = useState('/lock_img.png');
   const [showModal1,setShowModal1]= useState(false);
   const [showModal2,setShowModal2]= useState(false);
   const [showModal3,setShowModal3]= useState(false);
@@ -30,12 +27,9 @@ const Dropdown = (props) => {
     });
   }
 
-    // if(data[parseInt(useId)+1]&&data[parseInt(useId)+1].hint1==true){
-    //   setImageSrc1('/unlock.png');
-    // }
   function handelClick1(){
     console.log(user);
-    setImageSrc1('/unlock.png');
+    setShowModal1(true);
     updateHints({
         questionNumber:parseInt(useId)+1,
         data: {
@@ -49,8 +43,7 @@ const Dropdown = (props) => {
   
   function handelClick2(){
     console.log(user);
-    if(imageSrc1=='/unlock.png'){
-    setImageSrc2('/unlock.png');
+    if(!isLocked(1)){
     setShowModal2(true); 
     updateHints({
       questionNumber:parseInt(useId)+1,
@@ -63,10 +56,18 @@ const Dropdown = (props) => {
     });
     }
   }
+  function isLocked(no) {
+    if (data[parseInt(useId)+1]&&data[parseInt(useId)+1][`hint${no}`]==true) {
+      return false;
+    }
+    return true;
+  }
+  function getImgUrl(no) {
+    return isLocked(no)? "/lock_img.png": "/unlock.png";
+  }
   function handelClick3(){
     console.log("get up");
-    if(imageSrc2=='/unlock.png'){
-      setImageSrc3('/unlock.png');
+    if(!isLocked(2)){
       setShowModal3(true);
       updateHints({
         questionNumber:parseInt(useId)+1,
@@ -122,7 +123,7 @@ const MyModal3 =()=>{
                         Hint 1
                     </div>
                     <div className="hint_lock">
-                        <img className="img_lock" src={imageSrc1} alt="lock"/>
+                        <img className="img_lock" src={getImgUrl(1)} alt="lock"/>
                     </div>
                   </button>
                   { showModal1 && <MyModal1/>}
@@ -132,7 +133,7 @@ const MyModal3 =()=>{
                         Hint 2
                     </div>
                     <div className="hint_lock">
-                        <img className="img_lock" src={imageSrc2} alt="lock"/>
+                        <img className="img_lock" src={getImgUrl(2)} alt="lock"/>
                     </div>
                   </button>
                   { showModal2 && <MyModal2/>}
@@ -142,7 +143,7 @@ const MyModal3 =()=>{
                         Answer
                     </div>
                     <div className="hint_lock">
-                        <img className="img_lock" src={imageSrc3} alt="lock"/>
+                        <img className="img_lock" src={getImgUrl(3)} alt="lock"/>
                     </div>
                   </button>
                   { showModal3 && <MyModal3/>}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, createContext, useContext, useEffect } from "react";
-
 const PointsData = createContext(null);
 
 function PointsProvider({ children }) {

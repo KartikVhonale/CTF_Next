@@ -1,21 +1,19 @@
 "use client"
-import '../../style/style_main.css';
-import Dropdown from '../../components/Dropdown';
+import Dropdown from '../components/Dropdown';
 import { useState } from 'react';
-import { questions_10 } from '../../../../data';
+import { questions_10 } from '../../../data';
 import Link from 'next/link';
 import { useRouter } from "next/navigation"
-import Probnav from '../../components/Probnav';
-import { usePointsContext } from '../../context/PointsContext';
-import {addDocumentToCollection} from "../../../../utils/firebase"
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Probnav from '../components/Probnav';
+import { usePointsContext } from '../context/PointsContext';
+import {addDocumentToCollection} from "../../../utils/firebase"
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-const page = ({params}) => {
+const QPage = ({params, question}) => {
     
   const { points, setPoints, flags, setFlags,user,setUser, data, updateHints }= usePointsContext();
-  const route = useRouter();  
-  const question = questions_10.questions[params.id].question;
+  const route = useRouter();
   const [flagInIt,setFlagInIt] = "";
   const next_id = parseInt(params.id) + 1;
   const id1 = parseInt(params.id);
@@ -93,9 +91,8 @@ const page = ({params}) => {
                 </div>
                 <div className="link"><Link href="/questions/2">question files or link to use</Link></div>
                 <div className="button_s" >
-
                     <div className="text_field">
-                        <input type="text" className="field" id="flag_input" value={flagInIt} placeholder='Enter The Flag' onChange={inputEvent}
+                        <input type="text" className="field" id="flag_input" value={flagInIt}  onChange={inputEvent}
                         />
                     </div>
                     <div className="sub_but">
@@ -124,4 +121,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default QPage
