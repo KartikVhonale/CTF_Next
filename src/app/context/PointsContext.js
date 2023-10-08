@@ -6,8 +6,8 @@ const PointsData = createContext(null);
 function PointsProvider({ children }) {
   const [points, setPoints] = useState(0);
   const [flags, setFlags] = useState(0);
-  const [data, setData] = useState({});
   const [user, setUser] = useState("");
+  const [data, setData] = useState({});
 
   useEffect(() => {
     try {

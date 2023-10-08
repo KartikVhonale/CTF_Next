@@ -21,6 +21,15 @@ const Login = () => {
        };
        function handelClick(){
         setUser(username);
+    updateHints({
+      questionNumber:1,
+      data: {
+        ansCorrect: false,
+          hint1:false,
+          hint2:false,
+          hint3:false
+      }
+    });
         if(password%2==0){
           router.push(`/questions/0`);
         }

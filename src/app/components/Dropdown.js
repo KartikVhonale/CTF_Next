@@ -6,16 +6,14 @@ import Hint1 from './Hint1';
 import Hint2 from './Hint2';
 import Answer from './Answer';
 import {usePointsContext} from '../context/PointsContext';
-import { questions_10 } from '../../../data';
 
 const Dropdown = (props) => {
-  const { points, setPoints, flags, setFlags,user,setUser,
-     data, updateHints }= usePointsContext();
+  const { points, setPoints, flags, setFlags,user,setUser,data, updateHints }= usePointsContext();
   const [showModal1,setShowModal1]= useState(false);
   const [showModal2,setShowModal2]= useState(false);
   const [showModal3,setShowModal3]= useState(false);
   const useId = props.questionId;
-  if(!data[parseInt(useId)+1]){
+  if(data!=null&&!data[parseInt(useId)+1]){
     updateHints({
       questionNumber:parseInt(useId)+1,
       data: {
