@@ -11,7 +11,7 @@ import {addDocumentToCollection} from "../../../../utils/firebase"
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-const page = ({params}) => {
+const Page = ({params}) => {
     
   const { points, setPoints, flags, setFlags,user,setUser, data, updateHints }= usePointsContext();
   const route = useRouter();  
@@ -124,4 +124,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default Page
