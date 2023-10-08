@@ -2,7 +2,7 @@
 import '../../style/style_main.css';
 import Dropdown from '../../components/Dropdown';
 import { useState } from 'react';
-import { questions_10 } from '../../../../data2';
+import { questions_10 } from '../../../../data';
 import Link from 'next/link';
 import { useRouter } from "next/navigation"
 import Probnav from '../../components/Probnav';
@@ -51,7 +51,7 @@ const Page = ({params}) => {
     if(name === strFlag && data[next_id].ansCorrect==false){
         route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
-        addDocumentToCollection("CTFStore", "Adnan" , {  
+        addDocumentToCollection("CTFStore", user , {  
             flags: flags + 1,
             score: points + tpoints,
             timeSubmission: (new Date()).toISOString()
@@ -91,7 +91,7 @@ const Page = ({params}) => {
                 <div className="text_s" id='question' name='question'>
                 {question}
                 </div>
-                <div className="link"><Link href="https://drive.google.com/drive/folders/1NmC0-qqKsX_fOYgJpZx2IyM_TQseFNZA?usp=sharing" target='_blank'>question files or link to use</Link></div>
+                <div className="link"><Link href="https://drive.google.com/drive/folders/1NmC0-qqKsX_fOYgJpZx2IyM_TQseFNZA?usp=sharing" target="_blank">question files or link to use</Link></div>
                 <div className="button_s" >
 
                     <div className="text_field">

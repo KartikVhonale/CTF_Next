@@ -33,7 +33,7 @@ const Login = () => {
           router.push(`/questions/0`);
         }
         else{
-          router.push(`/questions2/0`);
+          router.push(`/questions/0`);
         }
        }
   return (
