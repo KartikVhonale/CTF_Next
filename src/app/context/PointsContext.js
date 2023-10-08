@@ -37,7 +37,7 @@ function PointsProvider({ children }) {
     if (points != 0 && flags != 0) {
       localStorage.setItem("data_points", points.toString());
       localStorage.setItem("data_flags", flags.toString());
-      localStorage.setItem("data_User", flags.toString());
+      localStorage.setItem("data_User", JSON.stringify());
       localStorage.setItem("data_data", JSON.stringify(data));
     }
   }, [points, flags, user,data]);

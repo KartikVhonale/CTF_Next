@@ -7,8 +7,7 @@ import { useRouter } from 'next/navigation'
 import { usePointsContext } from '../context/PointsContext'
 
 const Login = () => {
-       const { points, setPoints, flags, setFlags,user,setUser
-        , data, updateHints }= usePointsContext();
+       const { points, setPoints, flags, setFlags,user,setUser, data, updateHints }= usePointsContext();
        const router = useRouter();
        const [username,setUsername] = useState("");
        const [password,setPassword] = useState("");

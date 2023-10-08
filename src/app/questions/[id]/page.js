@@ -51,7 +51,7 @@ const Page = ({params}) => {
     if(name === strFlag && data[next_id].ansCorrect==false){
         route.push(`/questions/${next_id}`);
         console.log("correct flag is submitted");
-        addDocumentToCollection("CTFStore", "Adnan" , {  
+        addDocumentToCollection("CTFStore", user , {  
             flags: flags + 1,
             score: points + tpoints,
             timeSubmission: (new Date()).toISOString()
