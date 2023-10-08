@@ -91,7 +91,7 @@ const Page = ({params}) => {
                 <div className="text_s" id='question' name='question'>
                 {question}
                 </div>
-                <div className="link"><Link href="https://drive.google.com/drive/folders/1NmC0-qqKsX_fOYgJpZx2IyM_TQseFNZA?usp=sharing">question files or link to use</Link></div>
+                <div className="link"><Link href="https://drive.google.com/drive/folders/1NmC0-qqKsX_fOYgJpZx2IyM_TQseFNZA?usp=sharing" target='_blank'>question files or link to use</Link></div>
                 <div className="button_s" >
 
                     <div className="text_field">
