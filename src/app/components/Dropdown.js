@@ -13,14 +13,16 @@ const Dropdown = (props) => {
   const [showModal2,setShowModal2]= useState(false);
   const [showModal3,setShowModal3]= useState(false);
   const useId = props.questionId;
-  if(data!=null&&!data[parseInt(useId)+1]){
+  function updateLocal(a,b,c){
+    setFlags(flags => flags);
+    setPoints(points => points);
     updateHints({
       questionNumber:parseInt(useId)+1,
       data: {
         ansCorrect: false,
-          hint1:false,
-          hint2:false,
-          hint3:false
+          hint1:a,
+          hint2:b,
+          hint3:c
       }
     });
   }
@@ -28,30 +30,14 @@ const Dropdown = (props) => {
   function handelClick1(){
     console.log(user);
     setShowModal1(true);
-    updateHints({
-        questionNumber:parseInt(useId)+1,
-        data: {
-          ansCorrect: false,
-            hint1:true,
-            hint2:false,
-            hint3:false
-        }
-      });
+    updateLocal(true,false,false);
   }
   
-  function handelClick2(){
+  function handelClick(no){
     console.log(user);
-    if(!isLocked(1)){
-    setShowModal2(true); 
-    updateHints({
-      questionNumber:parseInt(useId)+1,
-      data: {
-        ansCorrect: false,
-          hint1:true,
-          hint2:true,
-          hint3:false
-      }
-    });
+    if(!isLocked(no-1)){
+    [`setShowModal${no}`](true);
+    updateLocal(true,true,false);
     }
   }
   function isLocked(no) {
@@ -62,21 +48,6 @@ const Dropdown = (props) => {
   }
   function getImgUrl(no) {
     return isLocked(no)? "/lock_img.png": "/unlock.png";
-  }
-  function handelClick3(){
-    console.log("get up");
-    if(!isLocked(2)){
-      setShowModal3(true);
-      updateHints({
-        questionNumber:parseInt(useId)+1,
-        data: {
-          ansCorrect: false,
-            hint1:true,
-            hint2:true,
-            hint3:true
-        }
-      }); 
-      } 
   }
   const MyModal1 =()=>{
     return(
@@ -126,7 +97,7 @@ const MyModal3 =()=>{
                   </button>
                   { showModal1 && <MyModal1/>}
                   
-                  <button onClick={()=>{handelClick2();}} className="hint">
+                  <button onClick={()=>{handelClick(2);}} className="hint">
                     <div className="hint_text">
                         Hint 2
                     </div>
@@ -136,7 +107,7 @@ const MyModal3 =()=>{
                   </button>
                   { showModal2 && <MyModal2/>}
 
-                  <button onClick={()=> {handelClick3();}} className="hint">
+                  <button onClick={()=> {handelClick(3);}} className="hint">
                     <div className="hint_text">
                         Answer
                     </div>
