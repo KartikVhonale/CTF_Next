@@ -22,10 +22,10 @@ function PointsProvider({ children }) {
       if (!isNaN(storedFlags)) {
         setFlags(storedFlags);
       }
-      if (!isNaN(storedData)) {
+      if (!storedData) {
         setData(storedData);
       }
-      if(!isNaN(storedUser)){
+      if(!storedUser){
         setUser(storedUser);
       }
     } catch (e) {
